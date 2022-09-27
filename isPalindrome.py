@@ -1,25 +1,24 @@
-def isPalindrome(s):
-        print("Starting")
-        t = ""
-        for char in s:
-            if char.isalnum():
-                t += char.lower()
-        p1 = 0
-        p2 = len(t) - 1
-        while (p1 < p2):
-            if t[p1] != t[p2]:
-                print("False")
-                return
-            p1 += 1
-            p2 -= 1
-        print("True")
-        return
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        left = 0
+        right = len(s) - 1
+        while (left < right):
+            while (left < right) and not self.alphanum(s[left]):
+                left += 1 
+            while (right > left) and not self.alphanum(s[right]):
+                right -= 1
+            if s[left].lower() != s[right].lower():
+                return False
+            left += 1
+            right -= 1
+        return True
     
-
-def main():
-    s = "race a car"
-    # s = "A man, a plan, a canal: Panama"
-    isPalindrome(s)
-
-if __name__ == '__main__':
-    main()
+    def alphanum(self, c):
+        return (ord('a') <= ord(c) <= ord('z') or
+                ord('A') <= ord(c) <= ord('Z') or
+                ord('0') <= ord(c) <= ord('9'))
+        

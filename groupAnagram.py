@@ -11,12 +11,5 @@ def groupAnagrams(strs):
         final_ans = list()
         for key in hashmap:
             final_ans.append(hashmap[key])
-        final_ans.sort()
+        final_ans.sort() #not necessary
         print(final_ans)
-    
-def main():
-    strs = ["eat","tea","tan","ate","nat","bat"]
-    strs = [""]
-    groupAnagrams(strs)
-if __name__ == '__main__':
-    main()
